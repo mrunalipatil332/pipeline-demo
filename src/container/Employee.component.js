@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 import StarkFormBuilder from 'stark-form-builder';
 import FormSections from './formschema.json';
 import AuthApi from '../helper/authApi';
@@ -63,25 +64,32 @@ function Employee() {
 
   return (
     <>
-    <h5>CICD Pipeline Demo using CodeDeploy</h5>
-      <StarkFormBuilder
-        containerClass=''
-        formHeaderClass=''
-        formSections={FormSections}
-        formHeading="Employee Details"
-        onFormSubmit={(formValues) => { submitForm(formValues); }}
-        options={options}
-        callbacks={{}}
-        defaultFormValues={defaultValues}
-        currentUser={currentUser}
-        submitBtnText="Submit"
-        showResetBtn={false}
-        resetBtnText="Clear"
-        btnContainerClass="form-submit-buttons"
-        onFormReset={() => {
-          console.log('form reset callback')
-        }}
-      />
+      <Card>
+        <Card.Header>
+          <h5>CICD Pipeline Demo using CodeDeploy</h5>
+
+        </Card.Header>
+        <Card.Body>
+          <StarkFormBuilder
+            containerClass=''
+            formHeaderClass=''
+            formSections={FormSections}
+            formHeading="Employee Details"
+            onFormSubmit={(formValues) => { submitForm(formValues); }}
+            options={options}
+            callbacks={{}}
+            defaultFormValues={defaultValues}
+            currentUser={currentUser}
+            submitBtnText="Submit"
+            showResetBtn={false}
+            resetBtnText="Clear"
+            btnContainerClass="form-submit-buttons"
+            onFormReset={() => {
+              console.log('form reset callback')
+            }}
+          />
+        </Card.Body>
+      </Card>
     </>
 
   )
